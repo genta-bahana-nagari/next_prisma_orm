@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Prisma ORM Backend
 
-## Getting Started
+This repository contains the **backend** of a web application built using **Next.js API routes** and **Prisma ORM**. It handles data management, authentication (optional), and RESTful or GraphQL APIs. This project does **not include any frontend views** — it is meant to function purely as a backend service.
 
-First, run the development server:
+## 🛠 Tech Stack
+
+- **Next.js** – API routes used as serverless functions
+- **Prisma ORM** – Type-safe database access
+- **PostgreSQL** (or your DB of choicem you can use MySQL)
+- **JavaScript**
+- Optional: **JWT Auth**, **Zod validation**, **bcrypt**, etc.
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/genta-bahana-nagari/next_prisma_orm.git
+cd next_prisma_orm #or other directories if you renamed it.
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set Up Environment Variables
+
+Create a `.env` file in the root of the project:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/yourdb"
+# Optional: JWT_SECRET, etc.
+```
+You can use 3306 port if you use MySQL
+
+### 4. Set Up Prisma
+
+Generate Prisma Client and run migrations:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Run the Development Server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+API will be available at: `http://localhost:3000/api`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+.
+├── prisma/
+│   └── schema.prisma      # Prisma schema definition
+├── pages/
+│   └── api/               # Next.js API routes
+├── lib/                   # Utility functions and services
+├── middleware/            # (Optional) Auth, logging, etc.
+├── .env                   # Environment variables
+├── package.json
+└── README.md
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can deploy this backend easily to:
 
-## Deploy on Vercel
+- **Vercel** (recommended for serverless API routes)
+- **Railway**, **Render**, or **Heroku**
+- **Docker** (optional setup required)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you want to deoloy it publicly, you can develop it with frontend page and make it more interactive.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🕪 Testing
+
+Use your preferred testing application, such as Postman.
+
+---
+
+## 📝 Notes
+
+- This repo is **backend-only** — no frontend components or UI are included.
+- Intended to be used as a base or plug-in API layer for a full-stack app.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
