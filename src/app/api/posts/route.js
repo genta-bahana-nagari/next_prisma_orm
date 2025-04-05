@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 //import prisma client
 import prisma from "../../../../prisma/client";
 
+// GET Method to collect data.
 export async function GET() {
   //get all posts
   const posts = await prisma.post.findMany();
